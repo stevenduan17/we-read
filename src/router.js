@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
 
 Vue.use(Router)
 
@@ -8,13 +7,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      redirect: '/ebook'
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      path: '/ebook',
+      name: 'ebook',
+      component: () => import('./views/ebook/EBook.vue'),
+      children: [
+        {
+          path: ':fileName',
+          component: () => import('./components/ebook/Reader.vue')
+        }
+      ]
     }
   ]
 })

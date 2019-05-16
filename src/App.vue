@@ -1,11 +1,5 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      |
-      <router-link to="/about">About</router-link>
-      <span class="test">我是测试字体 I'm a test code.</span>
-    </div>
     <router-view/>
   </div>
 </template>
@@ -17,11 +11,12 @@
     html.style.fontSize = `${fontsize}px`
   })
 </script>
-<style lang="stylus">
+<style lang="stylus" scoped>
   @import "assets/styles/global.styl"
 
-  .test
-    font-family "Days One"
-    font-size px2rem(70)
+  #app
+    width 100%
+    height 100%
+    overflow hidden
 
 </style>
